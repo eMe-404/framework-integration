@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id "io.freefair.lombok" version "6.2.0"
     id 'org.gretty' version '3.0.7'
+    id 'idea'
 }
 
 group 'org.example'
@@ -14,6 +15,8 @@ repositories {
 dependencies {
     implementation files('dependency/dependency-injection-v1.jar')
     implementation files('dependency/jaxrs-v1.jar')
+
+    testImplementation 'io.rest-assured:rest-assured:4.4.0'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
 }
@@ -23,5 +26,6 @@ test {
 }
 
 gretty {
+    httpPort = 28080
     contextPath = '/'
 }
